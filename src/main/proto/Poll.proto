@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package edu.sjsu.cmpe273.lab2;
+
+//edu.sjsu.cmpe273.lab2;
+//grpc.esxample.pollrestapi;
+
+option java_multiple_files = true;
+option java_package = "edu.sjsu.cmpe273.lab2";
+//io.grpc.examples.pollrestapi";
+option java_outer_classname = "PollProto";
+
+// The greeting service definition.
+service PollService {
+  // Sends a greeting
+  rpc createPoll (PollRequest) returns (PollResponse) {}
+}
+
+// The request message containing the user's name.
+message PollRequest {
+ string moderatorId = 1;
+ string question = 2;
+ string startedAt = 3;
+ string expiredAt = 4;
+ repeated string choice = 5;
+}
+
+// The response message containing the greetings
+message PollResponse {
+ string id = 1;
+ }
